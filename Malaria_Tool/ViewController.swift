@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  PatientDataTableViewController.swift
 //  Malaria_Tool
 //
-//  Created by Wanzin Yazar on 6/2/19.
+//  Created by Wanzin Yazar on 6/9/19.
 //  Copyright © 2019 Wanzin Yazar. All rights reserved.
 //
 
@@ -11,9 +11,6 @@ import Vision
 import CoreData
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    //@IBOutlet weak var ParasitizedLabel: UILabel!
-    //@IBOutlet weak var UninfectedLabel: UILabel!
     
     var patients = [Patient_Data]()
     
@@ -95,9 +92,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } catch {
             print("Error saving category \(error)")
         }
-        
-//        tableView.reloadData()
-        
     }
     
     func processImage(image:UIImage) {

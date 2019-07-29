@@ -15,7 +15,7 @@
 		342B511E22A48CFC00DB660D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 342B511D22A48CFC00DB660D /* Assets.xcassets */; };
 		342B512122A48CFC00DB660D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342B511F22A48CFC00DB660D /* LaunchScreen.storyboard */; };
 		342B512922A4950000DB660D /* Malaria.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 342B512822A4950000DB660D /* Malaria.mlmodel */; };
-		342B512B22A4983B00DB660D /* BakeryClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 342B512A22A4983B00DB660D /* BakeryClassifier.mlmodel */; };
+		34402EBD22AE013B00A1D50D /* SelectedPatientDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34402EBC22AE013B00A1D50D /* SelectedPatientDataTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		342B512022A48CFC00DB660D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		342B512222A48CFC00DB660D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		342B512822A4950000DB660D /* Malaria.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Malaria.mlmodel; sourceTree = "<group>"; };
-		342B512A22A4983B00DB660D /* BakeryClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BakeryClassifier.mlmodel; sourceTree = "<group>"; };
+		34402EBC22AE013B00A1D50D /* SelectedPatientDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPatientDataTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 				342B511622A48CFC00DB660D /* AppDelegate.swift */,
 				342B511822A48CFC00DB660D /* ViewController.swift */,
 				340911C322ACEBFA00F83111 /* PatientDataTableViewController.swift */,
-				342B512A22A4983B00DB660D /* BakeryClassifier.mlmodel */,
+				34402EBC22AE013B00A1D50D /* SelectedPatientDataTableViewController.swift */,
 				342B512822A4950000DB660D /* Malaria.mlmodel */,
 				342B511A22A48CFC00DB660D /* Main.storyboard */,
 				342B511D22A48CFC00DB660D /* Assets.xcassets */,
@@ -148,11 +148,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				342B512922A4950000DB660D /* Malaria.mlmodel in Sources */,
+				34402EBD22AE013B00A1D50D /* SelectedPatientDataTableViewController.swift in Sources */,
 				340911C022AC5FBD00F83111 /* DataModel.xcdatamodeld in Sources */,
 				342B511922A48CFC00DB660D /* ViewController.swift in Sources */,
 				340911C422ACEBFA00F83111 /* PatientDataTableViewController.swift in Sources */,
 				342B511722A48CFC00DB660D /* AppDelegate.swift in Sources */,
-				342B512B22A4983B00DB660D /* BakeryClassifier.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

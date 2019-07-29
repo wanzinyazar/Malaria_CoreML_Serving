@@ -59,7 +59,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ED-FA-SKo">
-                                <rect key="frame" x="0.0" y="88" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="90" width="375" height="542"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="138.91625615763547"/>
+            <point key="canvasLocation" x="64" y="-545"/>
         </scene>
         <!--Patient Data Table View Controller-->
         <scene sceneID="Eyv-LM-qez">
@@ -117,9 +117,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="bND-55-dL7">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="rLB-xy-ARQ" id="ZTf-0S-TkA"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PatientDataCell" id="dOs-GL-GDe">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dOs-GL-GDe" id="ecb-b3-W4B">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -132,10 +140,41 @@
                             <outlet property="delegate" destination="rLB-xy-ARQ" id="ruW-9P-1WQ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="cew-xo-FUg" kind="show" identifier="selectedUserData" id="J7V-kf-doL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0K0-pY-9sU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2111" y="139"/>
+            <point key="canvasLocation" x="951" y="-545"/>
+        </scene>
+        <!--Selected Patient Data Table View Controller-->
+        <scene sceneID="Xa1-26-36m">
+            <objects>
+                <tableViewController id="cew-xo-FUg" customClass="SelectedPatientDataTableViewController" customModule="Malaria_Tool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nP6-Ku-jdq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectedPatientCell" id="1zQ-VD-Dd7">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zQ-VD-Dd7" id="SzE-rJ-cyu">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cew-xo-FUg" id="s4Y-2c-ByD"/>
+                            <outlet property="delegate" destination="cew-xo-FUg" id="awg-IF-MUP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMp-iY-gQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1851" y="-545"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e3k-rQ-xJt">
@@ -153,7 +192,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRt-PS-PI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23.199999999999999" y="-542.36453201970448"/>
+            <point key="canvasLocation" x="-778" y="-544"/>
         </scene>
     </scenes>
 </document>

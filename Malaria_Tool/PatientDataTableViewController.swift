@@ -17,7 +17,7 @@ class PatientDataTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCategories()
+        loadPatients()
     }
 
     // MARK: - Table view data source
@@ -26,19 +26,34 @@ class PatientDataTableViewController: UITableViewController {
         return patients.count
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "selectedUserData", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! SelectedPatientDataTableViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.parasitized = patients[indexPath.row].parasitized;
+            destinationVC.uninfected = patients[indexPath.row].uninfected;
+            destinationVC.patientName = patients[indexPath.row].patient_name;
+        }
+        
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PatientDataCell", for: indexPath)
         
+        let text = patients[indexPath.row].patient_name
+        
+        print(text)
         cell.textLabel?.text = patients[indexPath.row].patient_name
         
         return cell
     }
     
-    
-    func loadCategories() {
-        
-        let request : NSFetchRequest<Patient_Data> = Patient_Data.fetchRequest()
+    func loadPatients(with request: NSFetchRequest<Patient_Data> = Patient_Data.fetchRequest()) {
         
         do {
             patients = try context.fetch(request)
@@ -49,4 +64,34 @@ class PatientDataTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
 
+}
+
+//MARK: - Search bar methods
+
+extension PatientDataTableViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        print("searching here")
+
+        let request : NSFetchRequest<Patient_Data> = Patient_Data.fetchRequest()
+
+        request.predicate = NSPredicate(format: "patient_name CONTAINS[cd] %@", searchBar.text!)
+
+        request.sortDescriptors = [NSSortDescriptor(key: "patient_name", ascending: true)]
+
+        loadPatients(with: request)
+
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadPatients()
+
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+
+        }
+    }
 }
